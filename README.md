@@ -11,7 +11,7 @@ To configure and run a local VM cluster using Vagrant. It is based on the CEDA C
 edit Vagrantfile to change:
 - N_COMP_NODES to the number of require compute nodes. The master node will always be created, and configured to run batch jobs.
 - N_CORES the number of cores per node.
-- LOCAL_NFS to a local empty directory. The cluster will nfs mount this directory at boot on all nodes under /vagrant. 
+- LOCAL_NFS to a local empty directory. The cluster will nfs mount this directory at boot on all nodes under /vagrant. This is useful for running multinode jobs which share files. If there are issues, comment out the config.vm.synced_folder line in the Vagrantfile
 
 To boot the cluster
 ```
