@@ -1,0 +1,12 @@
+#Install mpi plus others
+
+- hosts: all
+  remote_user: root
+
+
+  roles:
+  - munge
+  - slurm
+  - singularity
+  - docker
+  - mpich

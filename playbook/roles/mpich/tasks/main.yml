@@ -1,0 +1,13 @@
+---
+# Install mpich
+- name: Install mpich
+  yum:
+    name: mpich2,mpich2-devel
+    state: latest
+
+- name: Copy test prog
+  copy:
+    src: files/mpi_hello_world
+    dest: /home/vagrant
+    mode: 0775
+    owner: vagrant
