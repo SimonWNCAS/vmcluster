@@ -50,7 +50,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     v.cpus = 2
   end
-  config.vm.network "private_network", type: "dhcp"
   (0..N_COMP_NODES).each do |i|
     if i ==0 
       vm_name="master"
@@ -59,7 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     config.vm.define vm_name do |co|
       co.vm.hostname = "#{vm_name}"
-      co.vm.network "private_network",ip: ROOT_IP+"#{i}",virtualbox__intnet: "clusternet"
+      co.vm.network "private_network",ip: ROOT_IP+"#{i}"
     end
   end
   config.vm.synced_folder LOCAL_NFS, "/vagrant", type: "nfs", mount_options: ['rw', 'vers=3', 'tcp', 'fsc', 'actimeo=1']

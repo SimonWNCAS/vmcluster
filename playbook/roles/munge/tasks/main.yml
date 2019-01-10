@@ -19,4 +19,4 @@
   action: copy src=files/munge.key dest=/etc/munge/munge.key owner=munge group=munge mode=0400
 
 - name: Munge service
-  action: service name=munge state=started
+  action: service name=munge state=started enabled=true
